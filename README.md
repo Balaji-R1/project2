@@ -21,4 +21,19 @@ The transaction data is shared in Github repository for everyone to easily acces
      df["date"] = pd.to_datetime(df["date"])
      df["total_transactions"] = df["success_transactions"] + df["failure_transactions"]
 
-### 
+### To insert the transformed data into a MySQL database :
+    import mysql.connector
+
+##### Connect to the MySQL database
+      cnx = mysql.connector.connect(user='username', password='password',
+                                    host='localhost',
+                                    database='phonepe_pulse')
+
+##### Insert the transformed data using SQL commands
+     cursor = cnx.cursor()
+     query = "INSERT INTO transactions (date, success_transactions, failure_transactions, total_transactions) VALUES (%s, %s, %s, %s)"
+     for index, row in df.iterrows():
+         cursor.execute(query, (row["date"], row["success_transactions"], row["failure_transactions"], row["total_transactions"]))
+     cnx.commit()
+     cursor.close()
+     cnx.close()
