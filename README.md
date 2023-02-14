@@ -7,12 +7,11 @@ Phonepe Pulse:
 *  India's first interactive geospatial platform on digital payments
 The transaction data is shared in Github repository for everyone to easily access for better understanding, insights and visualization on how digital payments have evolved over the years in India.
 
-## Clone the pulse repository:
+### Clone the pulse repository:
  *  import git
     #Clone the Phonepe Pulse repository
  *  repo = git.Repo.clone_from("https://github.com/phonepe/pulse.git", "local_folder")
  
-
-#### heading2
+### heading2
 
 ###### heading3
