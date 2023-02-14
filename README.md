@@ -64,8 +64,8 @@ The transaction data is shared in Github repository for everyone to easily acces
 
 ### To fetch the data from the MySQL database into a Pandas dataframe for dynamic updating of the dashboard:
 ##### Connect to the MySQL database and fetch the data into a Pandas dataframe
-cnx = mysql.connector.connect(user='username', password='password',
-                              host='localhost',
-                              database='phonepe_pulse')
-df = pd.read_sql_query("SELECT * FROM transactions", cnx)
+       cnx = mysql.connector.connect(user='username', password='password',
+                                     host='localhost',
+                                     database='phonepe_pulse')
+       df = pd.read_sql_query("SELECT * FROM transactions", cnx)
 
