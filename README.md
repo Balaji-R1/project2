@@ -9,7 +9,6 @@ The transaction data is shared in Github repository for everyone to easily acces
 
 ### Clone the pulse repository:
      import git
- *  Clone the Phonepe Pulse repository
      repo = git.Repo.clone_from("https://github.com/phonepe/pulse.git", "local_folder")
  
 ### To manipulate and pre-process the data:
