@@ -62,3 +62,10 @@ elif selected_option == "Failure Transactions":
 else:
     st.plotly_chart(fig)
 
+### To fetch the data from the MySQL database into a Pandas dataframe for dynamic updating of the dashboard:
+##### Connect to the MySQL database and fetch the data into a Pandas dataframe
+cnx = mysql.connector.connect(user='username', password='password',
+                              host='localhost',
+                              database='phonepe_pulse')
+df = pd.read_sql_query("SELECT * FROM transactions", cnx)
+
