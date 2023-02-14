@@ -43,24 +43,24 @@ The transaction data is shared in Github repository for everyone to easily acces
    import streamlit as st
 
 ##### Fetch data from the MySQL database into a Pandas dataframe
-cnx = mysql.connector.connect(user='username', password='password',
-                              host='localhost',
-                              database='phonepe_pulse')
-df = pd.read_sql_query("SELECT * FROM transactions", cnx)
+        cnx = mysql.connector.connect(user='username', password='password',
+                                      host='localhost',
+                                      database='phonepe_pulse')
+        df = pd.read_sql_query("SELECT * FROM transactions", cnx)
 
 ##### Create a Plotly figure to display data on a map
-fig = px.scatter_geo(df, lat="latitude", lon="longitude", color="total_transactions", size="total_transactions")
+       fig = px.scatter_geo(df, lat="latitude", lon="longitude", color="total_transactions", size="total_transactions")
 
 ##### Create a Streamlit dashboard with dropdown options for users to select different facts and figures to display
-st.title("Phonepe Pulse Dashboard")
-options = ["Success Transactions", "Failure Transactions", "Total Transactions"]
-selected_option = st.selectbox("Select an option", options)
-if selected_option == "Success Transactions":
-    st.write("Success Transactions:", df["success_transactions"].sum())
-elif selected_option == "Failure Transactions":
-    st.write("Failure Transactions:", df["failure_transactions"].sum())
-else:
-    st.plotly_chart(fig)
+     st.title("Phonepe Pulse Dashboard")
+     options = ["Success Transactions", "Failure Transactions", "Total Transactions"]
+     selected_option = st.selectbox("Select an option", options)
+     if selected_option == "Success Transactions":
+         st.write("Success Transactions:", df["success_transactions"].sum())
+     elif selected_option == "Failure Transactions":
+         st.write("Failure Transactions:", df["failure_transactions"].sum())
+     else:
+         st.plotly_chart(fig)
 
 ### To fetch the data from the MySQL database into a Pandas dataframe for dynamic updating of the dashboard:
 ##### Connect to the MySQL database and fetch the data into a Pandas dataframe
