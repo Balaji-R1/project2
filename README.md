@@ -39,20 +39,19 @@ The transaction data is shared in Github repository for everyone to easily acces
      cnx.close()
      
 ### Dashboard creation:
-   To create an interactive dashboard, you can use Plotly and Streamlit libraries in Python. Here is an example code snippet:
-import plotly.express as px
-import streamlit as st
+   import plotly.express as px
+   import streamlit as st
 
-###### Fetch data from the MySQL database into a Pandas dataframe
+##### Fetch data from the MySQL database into a Pandas dataframe
 cnx = mysql.connector.connect(user='username', password='password',
                               host='localhost',
                               database='phonepe_pulse')
 df = pd.read_sql_query("SELECT * FROM transactions", cnx)
 
-###### Create a Plotly figure to display data on a map
+##### Create a Plotly figure to display data on a map
 fig = px.scatter_geo(df, lat="latitude", lon="longitude", color="total_transactions", size="total_transactions")
 
-###### Create a Streamlit dashboard with dropdown options for users to select different facts and figures to display
+##### Create a Streamlit dashboard with dropdown options for users to select different facts and figures to display
 st.title("Phonepe Pulse Dashboard")
 options = ["Success Transactions", "Failure Transactions", "Total Transactions"]
 selected_option = st.selectbox("Select an option", options)
