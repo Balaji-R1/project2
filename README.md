@@ -17,7 +17,7 @@ The transaction data is shared in Github repository for everyone to easily acces
 #### Clean the data and handle missing values :
      df = df.dropna()
      df = df.drop_duplicates()
-  * Transform the data into a format suitable for analysis and visualization:
+#### Transform the data into a format suitable for analysis and visualization:
      df["date"] = pd.to_datetime(df["date"])
      df["total_transactions"] = df["success_transactions"] + df["failure_transactions"]
 
