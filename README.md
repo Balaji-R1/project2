@@ -12,13 +12,12 @@ The transaction data is shared in Github repository for everyone to easily acces
      repo = git.Repo.clone_from("https://github.com/phonepe/pulse.git", "local_folder")
  
 ### To manipulate and pre-process the data:
-    import pandas as pd
-  * Load the data into a Pandas dataframe
+     import pandas as pd
      df = pd.read_csv("data.csv")
-  * Clean the data and handle missing values
+  * Clean the data and handle missing values :
      df = df.dropna()
      df = df.drop_duplicates()
-  * Transform the data into a format suitable for analysis and visualization
+  * Transform the data into a format suitable for analysis and visualization:
      df["date"] = pd.to_datetime(df["date"])
      df["total_transactions"] = df["success_transactions"] + df["failure_transactions"]
 
